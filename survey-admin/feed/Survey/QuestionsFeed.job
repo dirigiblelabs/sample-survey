@@ -1,0 +1,5 @@
+{
+	"expression": "0 0 0 1 * ? *",
+	"handler": "survey-admin/feed/Survey/QuestionsFeedSynchronizer.js",
+	"description": "QuestionsFeedSynchronizer Job"
+}

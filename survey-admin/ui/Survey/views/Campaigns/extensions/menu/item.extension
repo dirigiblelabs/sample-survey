@@ -1,0 +1,5 @@
+{
+	"description": "Campaigns menu",
+	"extensionPoint": "shell-survey-admin-menu",
+	"module": "survey-admin/views/Campaigns/menu/item.js"
+}

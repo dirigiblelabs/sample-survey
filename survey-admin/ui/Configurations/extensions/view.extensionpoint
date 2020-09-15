@@ -1,0 +1,4 @@
+{
+	"description": "Extension Point for the Configurations View Providers",
+	"name": "launchpad-survey-Configurations-view"
+}

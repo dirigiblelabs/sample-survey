@@ -1,0 +1,5 @@
+{
+	"description": "QuestionTypes menu",
+	"extensionPoint": "shell-survey-admin-menu",
+	"module": "survey-admin/views/QuestionTypes/menu/item.js"
+}

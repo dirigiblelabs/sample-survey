@@ -1,0 +1,5 @@
+{
+	"description": "Home perspective",
+	"extensionPoint": "launchpad-survey-perspective",
+	"module": "survey-admin/ui/extensions/perspective.js"
+}

@@ -1,0 +1,5 @@
+{
+	"description": "Survey tiles",
+	"extensionPoint": "launchpad-survey-tiles",
+	"module": "survey-admin/ui/Survey/views/Campaigns/extensions/tile/tile.js"
+}

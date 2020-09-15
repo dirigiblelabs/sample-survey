@@ -1,0 +1,142 @@
+{
+    "schema": {
+        "structures": [
+            {
+                "name": "SURVEY_QUESTIONS",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 64,
+                        "nullable": true,
+                        "name": "TITLE"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 128,
+                        "nullable": true,
+                        "name": "TEXT"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "nullable": true,
+                        "name": "QUESTIONTYPE"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "defaultValue": "1001",
+                        "name": "CAMPAIGN"
+                    }
+                ]
+            },
+            {
+                "name": "SURVEY_ANSWERS",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "ID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "nullable": true,
+                        "name": "QUESTIONID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 128,
+                        "nullable": true,
+                        "name": "ANSWER"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 32,
+                        "nullable": true,
+                        "name": "USERID"
+                    }
+                ]
+            },
+            {
+                "name": "SURVEY_QUESTION_TYPES",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 32,
+                        "nullable": true,
+                        "name": "TYPE"
+                    }
+                ]
+            },
+            {
+                "name": "SURVEY_QUESTION_OPTIONS",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "ID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "nullable": true,
+                        "name": "QUESTIONID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 64,
+                        "nullable": true,
+                        "name": "VALUE"
+                    }
+                ]
+            },
+            {
+                "name": "SURVEY_CAMPAIGNS",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 32,
+                        "nullable": true,
+                        "name": "NAME"
+                    }
+                ]
+            }
+        ]
+    }
+}

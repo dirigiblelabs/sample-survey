@@ -1,0 +1,5 @@
+{
+	"description": "QuestionOptions view",
+	"extensionPoint": "launchpad-survey-Survey-Questions-view",
+	"module": "survey-admin/ui/Survey/views/master/details/QuestionOptions/extensions/view.js"
+}
