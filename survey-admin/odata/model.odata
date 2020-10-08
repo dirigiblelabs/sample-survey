@@ -1,4 +1,210 @@
 {
-    "namespace": "",
-    "entities": []
+    "namespace": "io.dirigible.survey",
+    "entities": [
+        {
+            "name": "Questions",
+            "alias": "Questions",
+            "table": "SURVEY_QUESTIONS",
+            "properties": [
+                {
+                    "name": "Id",
+                    "column": "ID"
+                },
+                {
+                    "name": "Title",
+                    "column": "TITLE",
+                    "nullable": true
+                },
+                {
+                    "name": "Text",
+                    "column": "TEXT",
+                    "nullable": true
+                },
+                {
+                    "name": "QuestionType",
+                    "column": "QUESTIONTYPE",
+                    "nullable": true
+                },
+                {
+                    "name": "Campaign",
+                    "column": "CAMPAIGN",
+                    "nullable": false
+                }
+            ],
+            "navigations": [
+                {
+                    "name": "QuestionTypes",
+                    "association": "QuestionsQuestionTypes"
+                },
+                {
+                    "name": "Answers",
+                    "association": "QuestionsAnswers"
+                },
+                {
+                    "name": "QuestionOptions",
+                    "association": "QuestionsQuestionOptions"
+                }
+            ]
+        },
+        {
+            "name": "Answers",
+            "alias": "Answers",
+            "table": "SURVEY_ANSWERS",
+            "properties": [
+                {
+                    "name": "Id",
+                    "column": "ID"
+                },
+                {
+                    "name": "QuestionId",
+                    "column": "QUESTIONID",
+                    "nullable": true
+                },
+                {
+                    "name": "Answer",
+                    "column": "ANSWER",
+                    "nullable": true
+                },
+                {
+                    "name": "UserId",
+                    "column": "USERID",
+                    "nullable": true
+                }
+            ],
+            "navigations": []
+        },
+        {
+            "name": "QuestionTypes",
+            "alias": "QuestionTypes",
+            "table": "SURVEY_QUESTION_TYPES",
+            "properties": [
+                {
+                    "name": "Id",
+                    "column": "ID"
+                },
+                {
+                    "name": "Type",
+                    "column": "TYPE",
+                    "nullable": true
+                }
+            ],
+            "navigations": [
+                {
+                    "name": "Questions",
+                    "association": "QuestionTypesQuestions"
+                }
+            ]
+        },
+        {
+            "name": "QuestionOptions",
+            "alias": "QuestionOptions",
+            "table": "SURVEY_QUESTION_OPTIONS",
+            "properties": [
+                {
+                    "name": "Id",
+                    "column": "ID"
+                },
+                {
+                    "name": "QuestionId",
+                    "column": "QUESTIONID",
+                    "nullable": true
+                },
+                {
+                    "name": "Value",
+                    "column": "VALUE",
+                    "nullable": true
+                }
+            ],
+            "navigations": []
+        },
+        {
+            "name": "Campaigns",
+            "alias": "Campaigns",
+            "table": "SURVEY_CAMPAIGNS",
+            "properties": [
+                {
+                    "name": "Id",
+                    "column": "ID"
+                },
+                {
+                    "name": "Name",
+                    "column": "NAME",
+                    "nullable": true
+                }
+            ],
+            "navigations": [
+                {
+                    "name": "Questions",
+                    "association": "CampaignsQuestions"
+                }
+            ]
+        }
+    ],
+    "associations": [
+        {
+            "name": "QuestionsQuestionTypes",
+            "from": {
+                "entity": "Questions",
+                "property": "QuestionType",
+                "multiplicity": "1"
+            },
+            "to": {
+                "entity": "QuestionTypes",
+                "property": "Id",
+                "multiplicity": "1"
+            }
+        },
+        {
+            "name": "QuestionsAnswers",
+            "from": {
+                "entity": "Questions",
+                "property": "Id",
+                "multiplicity": "1"
+            },
+            "to": {
+                "entity": "Answers",
+                "property": "QuestionId",
+                "multiplicity": "*"
+            }
+        },
+        {
+            "name": "QuestionsQuestionOptions",
+            "from": {
+                "entity": "Questions",
+                "property": "Id",
+                "multiplicity": "1"
+            },
+            "to": {
+                "entity": "QuestionOptions",
+                "property": "QuestionId",
+                "multiplicity": "*"
+            }
+        },
+        {
+            "name": "QuestionTypesQuestions",
+            "from": {
+                "entity": "QuestionTypes",
+                "property": "Id",
+                "multiplicity": "1"
+            },
+            "to": {
+                "entity": "Questions",
+                "property": "QuestionType",
+                "multiplicity": "*"
+            }
+        },
+        {
+            "name": "CampaignsQuestions",
+            "from": {
+                "entity": "Campaigns",
+                "property": "Id",
+                "multiplicity": "1"
+            },
+            "to": {
+                "entity": "Questions",
+                "property": "Campaign",
+                "multiplicity": "*"
+            }
+        }
+    ]
 }
