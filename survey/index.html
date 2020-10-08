@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html  ng-app="survey">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link type="text/css" rel="stylesheet" href="../../../../../../../../services/v4/web/resources/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link type="image/png" rel="shortcut icon" href="../../../../../../../../services/v4/web/resources/images/favicon.png" />
+</head>
+<body ng-controller="PageController">
+
+    <div class="container alert alert-light">
+        <h1 ng-show="finished"class="text-center">Thank you for participating in the survey!</h1>
+        <wizard on-finish="finishedWizard()" on-cancel="cancelledWizard()" ng-hide="finished">
+                <wz-step wz-title="{{next.Title}}" ng-repeat="next in questions">
+                    <div class="btn-group pull-right">
+                        <button class="btn btn-link" wz-cancel>Cancel</button>
+                        <button class="btn btn-light" wz-previous>Previous</button>
+                        <button class="btn btn-primary" wz-next>{{$index + 1 === questions.length ? 'Finish' : 'Next'}}</button>
+                    </div>
+                    <h1>{{next.Title}}</h1>
+                    <p>{{next.Text}}</p>
+                    <div class="well">
+                        <!-- Single Choice -->
+                        <div ng-show="{{next.QuestionType == 'single-choice'}}" class="form-group">
+                            <div class="form-check" ng-repeat="option in next.QuestionOptions">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios{{$index}}" ng-model="answers.singleChoice[next.Id][$index]" value="{{option}}">
+                                <label class="form-check-label" for="exampleRadios{{$index}}">{{option}}</label>
+                            </div>
+                        </div>
+                        <!-- Single Choice -->
+
+                        <!-- Multiple Choice -->
+                        <div ng-show="{{next.QuestionType == 'multiple-choice'}}" class="form-group">
+                            <form>
+                                <div class="form-check" ng-repeat="option in next.QuestionOptions">
+                                    <input class="form-check-input" type="checkbox" ng-model="answers.multipleChoice[next.Id][option]" ng-true-value="'{{option}}'">
+                                    <label class="form-check-label">{{option}}</label>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- Multiple Choice -->
+
+                        <!-- Free Text -->
+                        <textarea ng-show="{{next.QuestionType == 'free-text'}}" ng-model="answers.freeText[next.Id]" class="form-control" rows="6"></textarea>
+                        <!-- Free Text -->
+
+                        <!-- Yes/No -->
+                        <div ng-show="{{next.QuestionType == 'yes-no'}}" class="form-group">
+                            <select  class="form-control" ng-options="o.Value as o.Value for o in yesNoOptions" ng-model="answers.yesNo[next.Id]"></select>
+                        </div>
+                        <!-- Yes/No -->
+                    </div>
+                </wz-step>
+        </wizard>
+    </div>
+
+    <script type="text/javascript" src="../../../../../../../../services/v4/web/resources/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="../../../../../../../../services/v4/web/resources/angular/1.4.7/angular.min.js"></script>
+	<script type="text/javascript" src="../../../../../../../../services/v4/web/resources/angular/1.4.7/angular-resource.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/angular-wizard@latest/dist/angular-wizard.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/angular-wizard@latest/dist/angular-wizard.min.css">
+
+    <script type="text/javascript" src="controller.js"></script>
+
+</body>
+</html>
