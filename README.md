@@ -20,7 +20,7 @@ Sample Survey Application
     - Set the `URL` to https://github.com/dirigiblelabs/sample-survey.git
     - Click the `Clone` button
 
-    ![sample-crm-git-clone](https://github.com/dirigiblelabs/sample-crm/blob/master/docs/1-sample-crm-git-clone.gif)
+    ![sample-crm-git-clone](https://github.com/dirigiblelabs/samples-docs/blob/master/sample-crm/docs/1-sample-crm-git-clone.gif)
 
 ## Tips & Tricks
 
@@ -32,7 +32,7 @@ In some cases, when updating the Entity Domain Model (model.edm), incompatible c
 1. Re-generated the application from the updated `model.model`
 1. Publish the `survey-admin` project
 
-![sample-crm-tips-and-tricks-1](https://github.com/dirigiblelabs/sample-crm/blob/master/docs/5-sample-crm-tips-and-tricks-1.gif)
+![sample-crm-tips-and-tricks-1](https://github.com/dirigiblelabs/samples-docs/blob/master/sample-crm/docs/5-sample-crm-tips-and-tricks-1.gif)
 
 In most cases, the previous steps should be enough to resolve issues from an incompatible change in the model. However, if incompatible change in the `Data` layer is made (e.g. `Null` -> `Not Null`, `VARCHAR` -> `INTEGER`, ...) then one addition step should be executed first:
 
@@ -47,14 +47,14 @@ Otherwise execute SQL queries, to drop the table(s), from the `SQL` view:
 drop table STUDENTS
 ```
 
-![sample-crm-tips-and-tricks-2](https://github.com/dirigiblelabs/sample-crm/blob/master/docs/6-sample-crm-tips-and-tricks-2.gif)
+![sample-crm-tips-and-tricks-2](https://github.com/dirigiblelabs/samples-docs/blob/master/sample-crm/docs/6-sample-crm-tips-and-tricks-2.gif)
 
 In some cases the generated application view(s) may disappear or be closed by accident. To reset the default layout follow these steps:
 
 1. Click on the "Themese" menu
 1. Select the "Reset" option
 
-![sample-crm-tips-and-tricks-3](https://github.com/dirigiblelabs/sample-crm/blob/master/docs/7-sample-crm-tips-and-tricks-3.gif)
+![sample-crm-tips-and-tricks-3](https://github.com/dirigiblelabs/samples-docs/blob/master/sample-crm/docs/7-sample-crm-tips-and-tricks-3.gif)
 
 ## License
 
